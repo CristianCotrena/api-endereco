@@ -1,6 +1,8 @@
 package com.api.endereco.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -32,7 +34,9 @@ public class EnderecoModel implements Serializable {
     private String cidade;
     @Column(nullable = false)
     private String estado;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
+    @Size(min = 11, max = 11)
+    @Pattern(regexp = "^[0-9]{8}$")
     private String cep;
     @Column(nullable = false, columnDefinition = "INT DEFAULT 1")
     private int status;
