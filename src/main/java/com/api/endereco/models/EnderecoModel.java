@@ -34,7 +34,7 @@ public class EnderecoModel implements Serializable {
     private String cidade;
     @Column(nullable = false)
     private String estado;
-    @Column(nullable = false, unique = true, )
+    @Column(nullable = false, unique = true)
     @Size(min = 11, max = 11)
     @Pattern(regexp = "^[0-9]{8}$")
     private String cep;
