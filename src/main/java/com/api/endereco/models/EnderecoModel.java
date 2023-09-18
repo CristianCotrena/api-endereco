@@ -35,7 +35,7 @@ public class EnderecoModel implements Serializable {
     @Column(nullable = false)
     private String estado;
     @Column(nullable = false, unique = true)
-    @Size(min = 11, max = 11)
+    @Size(min = 8, max = 8)
     @Pattern(regexp = "^[0-9]{8}$")
     private String cep;
     @Column(nullable = false, columnDefinition = "INT DEFAULT 1")
