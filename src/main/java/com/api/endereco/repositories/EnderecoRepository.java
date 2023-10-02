@@ -1,6 +1,6 @@
 package com.api.endereco.repositories;
 
-import com.api.endereco.models.EnderecoModel;
+import com.api.endereco.entity.models.EnderecoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

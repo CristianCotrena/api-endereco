@@ -1,4 +1,4 @@
-package com.api.endereco.models;
+package com.api.endereco.entity.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
