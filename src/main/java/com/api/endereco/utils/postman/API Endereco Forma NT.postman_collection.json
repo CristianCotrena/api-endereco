@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "bb23f428-14e1-40c0-a457-96444db2831b",
+		"name": "API Endereco Forma NT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25298901"
+	},
+	"item": [
+		{
+			"name": "POST Cadastrar Endereco",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"idCliente\": \"b8ca6927-7f2f-4cdd-876c-2579be0fb218\",\r\n\t\"idFuncionario\": \"\",\r\n\t\"idFornecedor\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/endereco",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"endereco"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
