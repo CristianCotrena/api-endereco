@@ -1,4 +1,4 @@
-package com.api.endereco.models;
+package com.api.endereco.entity.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
@@ -25,7 +25,7 @@ public class EnderecoModel implements Serializable {
     @Column(nullable = false)
     private String rua;
     @Column
-    private int numero;
+    private Integer numero;
     @Column
     private String complemento;
     @Column(nullable = false)
@@ -39,7 +39,7 @@ public class EnderecoModel implements Serializable {
     @Pattern(regexp = "^[0-9]{8}$")
     private String cep;
     @Column(nullable = false, columnDefinition = "INT DEFAULT 1")
-    private int status;
+    private Integer status;
 
     public EnderecoModel() {
     }
@@ -50,13 +50,13 @@ public class EnderecoModel implements Serializable {
             UUID idFuncionario,
             UUID idFornecedor,
             String rua,
-            int numero,
+            Integer numero,
             String complemento,
             String bairro,
             String cidade,
             String estado,
             String cep,
-            int status) {
+            Integer status) {
 
         this.id = id;
         this.idCliente = idCliente;
@@ -112,7 +112,7 @@ public class EnderecoModel implements Serializable {
         this.rua = rua;
     }
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
@@ -160,7 +160,7 @@ public class EnderecoModel implements Serializable {
         this.cep = cep;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
