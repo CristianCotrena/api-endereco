@@ -68,7 +68,7 @@ public class EnderecoController {
     })
     @PostMapping
     public ResponseEntity<BaseDto<EnderecoModel>> cadastrarEndereco(@RequestBody EnderecoRequestDto enderecoRequestDto) {
-        BaseDto baseDto = cadastrarEnderecoService.cadastrarEndereco(enderecoRequestDto);
-        return ResponseEntity.status(baseDto.getResultado().getStatus()).body(baseDto);
+        ResponseEntity<BaseDto<EnderecoModel>> resultado = cadastrarEnderecoService.cadastrarEndereco(enderecoRequestDto);
+        return resultado;
     }
 }
