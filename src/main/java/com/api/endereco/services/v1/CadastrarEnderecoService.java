@@ -13,6 +13,7 @@ import com.api.endereco.repositories.EnderecoRepository;
 import com.api.endereco.transformer.EnderecoModelTransform;
 import com.api.endereco.validates.CadastrarEnderecoValidate;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,47 +28,31 @@ public class CadastrarEnderecoService {
         this.enderecoRepository = enderecoRepository;
     }
 
-    public BaseDto cadastrarEndereco(EnderecoRequestDto enderecoRequestDto) {
-        String colunaDuplicada = "";
+    public ResponseEntity cadastrarEndereco(EnderecoRequestDto enderecoRequestDto) {
+
         List<BaseErrorDto> erros = new CadastrarEnderecoValidate().validate(enderecoRequestDto);
         if (erros.size() > 0) {
             ResponseErrorBuilder resultado =  new ResponseErrorBuilder(HttpStatus.BAD_REQUEST, erros);
-            return resultado.getResultado().getBody();
+            return resultado.getResultado();
         }
 
-        if (enderecoRequestDto.getIdCliente() != null && !(enderecoRequestDto.getIdCliente().toString().isEmpty())) {
-            if (enderecoRepository.existsByIdCliente(enderecoRequestDto.getIdCliente()).orElse(false)
-                    || enderecoRepository.existsByIdFornecedor(enderecoRequestDto.getIdCliente()).orElse(false)
-                    || enderecoRepository.existsByIdFuncionario(enderecoRequestDto.getIdCliente()).orElse(false)) {
-                erros.add(new BaseErrorDto("Id Cliente.", MensagensErros.DADO_JA_CADASTRADO + colunaDuplicada));
-            }
-        }
-        if (enderecoRequestDto.getIdFornecedor() != null && !(enderecoRequestDto.getIdFornecedor().toString().isEmpty())) {
-            if (enderecoRepository.existsByIdCliente(enderecoRequestDto.getIdFornecedor()).orElse(false)
-                    || enderecoRepository.existsByIdFornecedor(enderecoRequestDto.getIdFornecedor()).orElse(false)
-                    || enderecoRepository.existsByIdFuncionario(enderecoRequestDto.getIdFornecedor()).orElse(false)) {
-                erros.add(new BaseErrorDto("Id Fornecedor.", MensagensErros.DADO_JA_CADASTRADO + colunaDuplicada));
-            }
-        }
-        if (enderecoRequestDto.getIdFuncionario() != null && !(enderecoRequestDto.getIdFuncionario().toString().isEmpty())) {
-            if (enderecoRepository.existsByIdCliente(enderecoRequestDto.getIdFuncionario()).orElse(false)
-                    || enderecoRepository.existsByIdFornecedor(enderecoRequestDto.getIdFuncionario()).orElse(false)
-                    || enderecoRepository.existsByIdFuncionario(enderecoRequestDto.getIdFuncionario()).orElse(false)) {
-                erros.add(new BaseErrorDto("Id Funcionário.", MensagensErros.DADO_JA_CADASTRADO + colunaDuplicada));
-            }
-        }
         if ((new EnderecoModelTransform().verificarErroCep(enderecoRequestDto) == false)) {
             erros.add(new BaseErrorDto("CEP", "CEP inválido."));
         }
+
         if (erros.size() > 0) {
             ResponseErrorBuilder resultado =  new ResponseErrorBuilder(HttpStatus.BAD_REQUEST, erros);
-            return resultado.getResultado().getBody();
+            return resultado.getResultado();
         }
 
         EnderecoModel enderecoModel = new EnderecoModelTransform().transformarParaEnderecoModel(enderecoRequestDto);
         UUID cadastrarIdEndereco = enderecoRepository.save(enderecoModel).getId();
-        return new ResponseSuccessBuilder<EnderecoResponseDto>(
+
+        ResponseSuccessBuilder cadastradoComSucesso = new ResponseSuccessBuilder<EnderecoResponseDto>(
                 HttpStatus.CREATED,
-                new EnderecoResponseDto(cadastrarIdEndereco.toString()), MensagemSucessos.CADASTRADO_COM_SUCESSO).getResultado().getBody();
+                new EnderecoResponseDto(cadastrarIdEndereco.toString()),
+                MensagemSucessos.CADASTRADO_COM_SUCESSO
+        );
+        return cadastradoComSucesso.getResultado();
     }
 }

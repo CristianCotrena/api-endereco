@@ -4,9 +4,9 @@ import java.util.UUID;
 
 public class EnderecoRequestDto {
 
-    private UUID idCliente;
-    private UUID idFuncionario;
-    private UUID idFornecedor;
+    private String idCliente;
+    private String idFuncionario;
+    private String idFornecedor;
     private String rua;
     private Integer numero;
     private String complemento;
@@ -19,9 +19,9 @@ public class EnderecoRequestDto {
     }
 
     public EnderecoRequestDto(
-            UUID idCliente,
-            UUID idFuncionario,
-            UUID idFornecedor,
+            String idCliente,
+            String idFuncionario,
+            String idFornecedor,
             String rua,
             Integer numero,
             String complemento,
@@ -41,27 +41,27 @@ public class EnderecoRequestDto {
         this.cep = cep;
     }
 
-    public UUID getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(UUID idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
 
-    public UUID getIdFuncionario() {
+    public String getIdFuncionario() {
         return idFuncionario;
     }
 
-    public void setIdFuncionario(UUID idFuncionario) {
+    public void setIdFuncionario(String idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
 
-    public UUID getIdFornecedor() {
+    public String getIdFornecedor() {
         return idFornecedor;
     }
 
-    public void setIdFornecedor(UUID idFornecedor) {
+    public void setIdFornecedor(String idFornecedor) {
         this.idFornecedor = idFornecedor;
     }
 

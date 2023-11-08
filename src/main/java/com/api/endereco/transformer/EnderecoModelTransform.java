@@ -3,13 +3,21 @@ package com.api.endereco.transformer;
 import com.api.endereco.entity.dtos.EnderecoRequestDto;
 import com.api.endereco.entity.models.EnderecoModel;
 
+import java.util.UUID;
+
 public class EnderecoModelTransform {
 
     public EnderecoModel transformarParaEnderecoModel(EnderecoRequestDto dto) {
         EnderecoModel enderecoModel = new EnderecoModel();
-        enderecoModel.setIdCliente(dto.getIdCliente());
-        enderecoModel.setIdFuncionario(dto.getIdFuncionario());
-        enderecoModel.setIdFornecedor(dto.getIdFornecedor());
+        if (dto.getIdCliente() != null && !dto.getIdCliente().isEmpty()) {
+            enderecoModel.setIdCliente(UUID.fromString(dto.getIdCliente()));
+        }
+        if (dto.getIdFornecedor() != null && !dto.getIdFornecedor().isEmpty()) {
+            enderecoModel.setIdFuncionario(UUID.fromString(dto.getIdFornecedor()));
+        }
+        if (dto.getIdFuncionario() != null && !dto.getIdFuncionario().isEmpty()) {
+            enderecoModel.setIdFornecedor(UUID.fromString(dto.getIdFuncionario()));
+        }
         enderecoModel.setCep(dto.getCep());
 
         BuscarViaCep buscarViaCep = EnderecoBuscarCep.recebendoEndereco(dto.getCep());

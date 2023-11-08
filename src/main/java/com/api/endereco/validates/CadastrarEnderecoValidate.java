@@ -22,17 +22,17 @@ public class CadastrarEnderecoValidate {
 
         {
             List<String> listaIds = new ArrayList<>();
-            if (enderecoRequestDto.getIdCliente() != null && !enderecoRequestDto.getIdCliente().toString().isEmpty()) {
-                listaIds.add(enderecoRequestDto.getIdCliente().toString());
+            if (enderecoRequestDto.getIdCliente() != null && !enderecoRequestDto.getIdCliente().isEmpty()) {
+                listaIds.add(enderecoRequestDto.getIdCliente());
             }
-            if (enderecoRequestDto.getIdFuncionario() != null && !enderecoRequestDto.getIdFuncionario().toString().isEmpty()) {
-                listaIds.add(enderecoRequestDto.getIdFuncionario().toString());
+            if (enderecoRequestDto.getIdFuncionario() != null && !enderecoRequestDto.getIdFuncionario().isEmpty()) {
+                listaIds.add(enderecoRequestDto.getIdFuncionario());
             }
-            if (enderecoRequestDto.getIdFornecedor() != null && !enderecoRequestDto.getIdFornecedor().toString().isEmpty()) {
-                listaIds.add(enderecoRequestDto.getIdFornecedor().toString());
+            if (enderecoRequestDto.getIdFornecedor() != null && !enderecoRequestDto.getIdFornecedor().isEmpty()) {
+                listaIds.add(enderecoRequestDto.getIdFornecedor());
             }
             if (listaIds.size() < 1) {
-                erros.add(new BaseErrorDto("Id.", "Um Id deve ser informado."));
+                erros.add(new BaseErrorDto("idCliente, idFornecedor, idFuncionario", "Um Id deve ser informado."));
             } else {
                 int contador = 0;
                 int id = 0;
@@ -40,7 +40,7 @@ public class CadastrarEnderecoValidate {
                     if (!listaIds.get(i).isEmpty() && listaIds.get(i) != null) {
                         id = i;
                         if (contador > 0) {
-                            erros.add(new BaseErrorDto("Id.", MensagensErros.APENAS_UM_ID));
+                            erros.add(new BaseErrorDto("id", MensagensErros.APENAS_UM_ID));
                             break;
                         } else {
                             contador++;
@@ -62,6 +62,22 @@ public class CadastrarEnderecoValidate {
     public List<BaseErrorDto> validarCamposInvalidos(
             EnderecoRequestDto enderecoRequestDto,
             List<BaseErrorDto> erros) {
+
+        if ((enderecoRequestDto.getIdCliente() != null) && (!enderecoRequestDto.getIdCliente().isEmpty())) {
+            if (!Pattern.compile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matcher(enderecoRequestDto.getIdCliente()).matches()) {
+                erros.add(new BaseErrorDto("idCliente", MensagensErros.CAMPO_FORA_DO_PADRAO));
+            }
+        }
+        if ((enderecoRequestDto.getIdFornecedor() != null) && (!enderecoRequestDto.getIdFornecedor().isEmpty())) {
+            if (!Pattern.compile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matcher(enderecoRequestDto.getIdFornecedor()).matches()) {
+                erros.add(new BaseErrorDto("idFornecedor", MensagensErros.CAMPO_FORA_DO_PADRAO));
+            }
+        }
+        if ((enderecoRequestDto.getIdFuncionario() != null) && (!enderecoRequestDto.getIdFuncionario().isEmpty())) {
+            if (!Pattern.compile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matcher(enderecoRequestDto.getIdFuncionario()).matches()) {
+                erros.add(new BaseErrorDto("idFuncionario", MensagensErros.CAMPO_FORA_DO_PADRAO));
+            }
+        }
         if (!(Pattern.compile(Regex.cep).matcher(enderecoRequestDto.getCep()).matches())) {
             erros.add(new BaseErrorDto("CEP.", MensagensErros.CAMPO_FORA_DO_PADRAO));
         }
