@@ -1,8 +1,6 @@
 package com.api.endereco.entity.dtos;
 
-import java.util.UUID;
-
-public class EnderecoRequestDto {
+public class CadastrarEnderecoRequestDto {
 
     private String idCliente;
     private String idFuncionario;
@@ -15,10 +13,10 @@ public class EnderecoRequestDto {
     private String estado;
     private String cep;
 
-    public EnderecoRequestDto() {
+    public CadastrarEnderecoRequestDto() {
     }
 
-    public EnderecoRequestDto(
+    public CadastrarEnderecoRequestDto(
             String idCliente,
             String idFuncionario,
             String idFornecedor,

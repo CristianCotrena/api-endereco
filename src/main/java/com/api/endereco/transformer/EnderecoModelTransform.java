@@ -1,13 +1,13 @@
 package com.api.endereco.transformer;
 
-import com.api.endereco.entity.dtos.EnderecoRequestDto;
+import com.api.endereco.entity.dtos.CadastrarEnderecoRequestDto;
 import com.api.endereco.entity.models.EnderecoModel;
 
 import java.util.UUID;
 
 public class EnderecoModelTransform {
 
-    public EnderecoModel transformarParaEnderecoModel(EnderecoRequestDto dto) {
+    public EnderecoModel transformarParaEnderecoModel(CadastrarEnderecoRequestDto dto) {
         EnderecoModel enderecoModel = new EnderecoModel();
         if (dto.getIdCliente() != null && !dto.getIdCliente().isEmpty()) {
             enderecoModel.setIdCliente(UUID.fromString(dto.getIdCliente()));
@@ -30,7 +30,7 @@ public class EnderecoModelTransform {
         return enderecoModel;
     }
 
-    public boolean verificarErroCep(EnderecoRequestDto dto) {
+    public boolean verificarErroCep(CadastrarEnderecoRequestDto dto) {
         BuscarViaCep buscarViaCep = EnderecoBuscarCep.recebendoEndereco(dto.getCep());
         if (buscarViaCep.getErro() != null) {
             return false;
