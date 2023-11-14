@@ -1,15 +1,23 @@
 package com.api.endereco.transformer;
 
-import com.api.endereco.entity.dtos.EnderecoRequestDto;
+import com.api.endereco.entity.dtos.CadastrarEnderecoRequestDto;
 import com.api.endereco.entity.models.EnderecoModel;
+
+import java.util.UUID;
 
 public class EnderecoModelTransform {
 
-    public EnderecoModel transformarParaEnderecoModel(EnderecoRequestDto dto) {
+    public EnderecoModel transformarParaEnderecoModel(CadastrarEnderecoRequestDto dto) {
         EnderecoModel enderecoModel = new EnderecoModel();
-        enderecoModel.setIdCliente(dto.getIdCliente());
-        enderecoModel.setIdFuncionario(dto.getIdFuncionario());
-        enderecoModel.setIdFornecedor(dto.getIdFornecedor());
+        if (dto.getIdCliente() != null && !dto.getIdCliente().isEmpty()) {
+            enderecoModel.setIdCliente(UUID.fromString(dto.getIdCliente()));
+        }
+        if (dto.getIdFornecedor() != null && !dto.getIdFornecedor().isEmpty()) {
+            enderecoModel.setIdFuncionario(UUID.fromString(dto.getIdFornecedor()));
+        }
+        if (dto.getIdFuncionario() != null && !dto.getIdFuncionario().isEmpty()) {
+            enderecoModel.setIdFornecedor(UUID.fromString(dto.getIdFuncionario()));
+        }
         enderecoModel.setCep(dto.getCep());
 
         BuscarViaCep buscarViaCep = EnderecoBuscarCep.recebendoEndereco(dto.getCep());
@@ -22,7 +30,7 @@ public class EnderecoModelTransform {
         return enderecoModel;
     }
 
-    public boolean verificarErroCep(EnderecoRequestDto dto) {
+    public boolean verificarErroCep(CadastrarEnderecoRequestDto dto) {
         BuscarViaCep buscarViaCep = EnderecoBuscarCep.recebendoEndereco(dto.getCep());
         if (buscarViaCep.getErro() != null) {
             return false;

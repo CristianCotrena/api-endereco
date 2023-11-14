@@ -1,7 +1,7 @@
 package com.api.endereco.controllers.v1;
 
 import com.api.endereco.base.dto.BaseDto;
-import com.api.endereco.entity.dtos.EnderecoRequestDto;
+import com.api.endereco.entity.dtos.CadastrarEnderecoRequestDto;
 import com.api.endereco.entity.models.EnderecoModel;
 import com.api.endereco.services.v1.CadastrarEnderecoService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -67,8 +67,8 @@ public class EnderecoController {
             }),
     })
     @PostMapping
-    public ResponseEntity<BaseDto<EnderecoModel>> cadastrarEndereco(@RequestBody EnderecoRequestDto enderecoRequestDto) {
-        BaseDto baseDto = cadastrarEnderecoService.cadastrarEndereco(enderecoRequestDto);
-        return ResponseEntity.status(baseDto.getResultado().getStatus()).body(baseDto);
+    public ResponseEntity<BaseDto<EnderecoModel>> cadastrarEndereco(@RequestBody CadastrarEnderecoRequestDto cadastrarEnderecoRequestDto) {
+        ResponseEntity<BaseDto<EnderecoModel>> resultado = cadastrarEnderecoService.cadastrarEndereco(cadastrarEnderecoRequestDto);
+        return resultado;
     }
 }
