@@ -1,7 +1,5 @@
 package com.api.endereco.services.v1;
 
-import ch.qos.logback.core.net.server.Client;
-import com.api.endereco.base.dto.BaseDto;
 import com.api.endereco.base.dto.BaseErrorDto;
 import com.api.endereco.builder.ResponseErrorBuilder;
 import com.api.endereco.builder.ResponseSuccessBuilder;
