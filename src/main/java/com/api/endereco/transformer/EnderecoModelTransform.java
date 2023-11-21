@@ -51,7 +51,7 @@ public class EnderecoModelTransform {
         }
 
         BuscarViaCep buscarViaCep = EnderecoBuscarCep.recebendoEndereco(dto.getCep());
-        enderecoModel.setRua(buscarViaCep.getLocalidade());
+        enderecoModel.setRua(buscarViaCep.getLogradouro());
         enderecoModel.setBairro(buscarViaCep.getBairro());
         enderecoModel.setCidade(buscarViaCep.getLocalidade());
         enderecoModel.setEstado(buscarViaCep.getUf());
