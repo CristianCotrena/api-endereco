@@ -76,6 +76,45 @@ public class EnderecoController {
         return resultado;
     }
 
+    @Operation(summary = "Listar enderecos de um id.", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "202", description = "Listado com sucesso.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Listado com sucesso.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Somente um id deve ser informado.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Somente um id deve ser informado.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Campo Id é obrigatório.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Campo Id é obrigatório.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Id fora do padrão UUID.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Id fora do padrão UUID.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Pagina incorreta.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Pagina incorreta.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Id não encontrado.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Id não encontrado.")
+                    )
+            }),
+    })
     @GetMapping
     public ResponseEntity<BaseDto<EnderecoModel>> listarEnderecos (
             ListarEnderecosRequestDto listarEnderecosRequestDto,
