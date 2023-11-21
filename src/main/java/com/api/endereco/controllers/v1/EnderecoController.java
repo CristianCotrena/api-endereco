@@ -77,6 +77,39 @@ public class EnderecoController {
         return resultado;
     }
 
+    @Operation(summary = "Atualizar parcialmente um endereço já existente.", method = "PUT")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "202", description = "Endereço atualizado com sucesso.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Endereço atualizado com sucesso.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Id informado fora do padrão.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Id informado fora do padrão.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Campo número fora do padrão.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Campo número fora do padrão.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Campo CEP fora do padrão.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Campo CEP fora do padrão.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Id não existente na base de dados.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Id não existente na base de dados.")
+                    )
+            })
+    })
     @PatchMapping("/{id}")
     public ResponseEntity<BaseDto<EnderecoModel>> atualizarParcialmente(
             @PathVariable(value = "id") String id,
