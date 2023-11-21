@@ -7,32 +7,1194 @@
 	},
 	"item": [
 		{
-			"name": "POST Cadastrar Endereco",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"idCliente\": \"b8ca6927-7f2f-4cdd-876c-2579be0fb218\",\r\n\t\"idFuncionario\": \"\",\r\n\t\"idFornecedor\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Cadastrar Endereço",
+			"item": [
+				{
+					"name": "POST Cadastrar Endereco Sucesso Id Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"9c378756-9c67-452c-a294-dc7e0cb49c38\",\r\n\t\"idFornecedor\": \"\",\r\n    \"idFuncionario\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/v1/endereco",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"endereco"
-					]
+				{
+					"name": "POST Cadastrar Endereco Sucesso Id Fornecedor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"\",\r\n\t\"idFornecedor\": \"0d3f77ae-ff69-4188-b094-0b8bb26be6fc\",\r\n    \"idFuncionario\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Sucesso Id Funcionario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"\",\r\n\t\"idFornecedor\": \"\",\r\n    \"idFuncionario\": \"1af05d88-6628-41d7-9c98-f45f62b0a4c2\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso Id Cliente Já Cadastrado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"9c378756-9c67-452c-a294-dc7e0cb49c38\",\r\n\t\"idFornecedor\": \"\",\r\n    \"idFuncionario\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso Id Fornecedor Já Cadastrado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"\",\r\n\t\"idFornecedor\": \"0d3f77ae-ff69-4188-b094-0b8bb26be6fc\",\r\n    \"idFuncionario\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso Id Funcionario Já Cadastrado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"\",\r\n\t\"idFornecedor\": \"\",\r\n    \"idFuncionario\": \"1af05d88-6628-41d7-9c98-f45f62b0a4c2\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso Mais de Um Id 01",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"0de6093d-cf23-44e0-89f5-4421447c699b\",\r\n\t\"idFornecedor\": \"a405759c-6b86-49e5-a8a2-31a858b7a32b\",\r\n    \"idFuncionario\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso Mais de Um Id 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"0de6093d-cf23-44e0-89f5-4421447c699b\",\r\n\t\"idFornecedor\": \"\",\r\n    \"idFuncionario\": \"a405759c-6b86-49e5-a8a2-31a858b7a32b\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso Mais de Um Id 03",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"\",\r\n\t\"idFornecedor\": \"0de6093d-cf23-44e0-89f5-4421447c699b\",\r\n    \"idFuncionario\": \"a405759c-6b86-49e5-a8a2-31a858b7a32b\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso Nenhum Id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"\",\r\n\t\"idFornecedor\": \"\",\r\n    \"idFuncionario\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"70150904\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso CEP Fora do Padrão",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"042fd6a7-51b6-4f53-81d8-adce1f95813a\",\r\n\t\"idFornecedor\": \"\",\r\n    \"idFuncionario\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"7015090\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cadastrar Endereco Fracasso CEP Inexistente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"idCliente\": \"042fd6a7-51b6-4f53-81d8-adce1f95813a\",\r\n\t\"idFornecedor\": \"\",\r\n    \"idFuncionario\": \"\",\r\n\t\"numero\": \"1\",\r\n\t\"cep\": \"00000000\",\r\n\t\"complemento\": \"Palácio do Planalto\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/endereco",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Listar Enderecos",
+			"item": [
+				{
+					"name": "01 - SUCESSO Listar Enderecos ID CLIENTE E PAGINA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idCliente=d0cf8548-a0f6-490a-ac6e-2a47b320e940&pagina=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940"
+								},
+								{
+									"key": "idFornecedor",
+									"value": "9e9733b9-2643-4eb4-ae74d1a6ad00961",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02 - SUCESSO Listar Enderecos ID FORNECEDOR E PAGINA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFornecedor=749b40a5-c6a4-454b-8923-e408bec9133f&pagina=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f"
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03 - SUCESSO Listar Enderecos ID FUNCIONARIO E PAGINA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFuncionario=3eb5d547-a954-42e0-860d-7f3edb4f5ff5&pagina=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5"
+								},
+								{
+									"key": "pagina",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04 - SUCESSO Listar Enderecos ID CLIENTE SEM PAGINA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idCliente=d0cf8548-a0f6-490a-ac6e-2a47b320e940",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940"
+								},
+								{
+									"key": "idFornecedor",
+									"value": "9e9733b9-2643-4eb4-ae74d1a6ad00961",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "05 - SUCESSO Listar Enderecos ID FORNECEDOR SEM PAGINA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFornecedor=749b40a5-c6a4-454b-8923-e408bec9133f",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f"
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06 - SUCESSO Listar Enderecos ID FUNCIONARIO SEM PAGINA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFuncionario=3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5"
+								},
+								{
+									"key": "pagina",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "07 - FRACASSO Listar Enderecos TODOS OS IDS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idCliente=d0cf8548-a0f6-490a-ac6e-2a47b320e940&idFornecedor=749b40a5-c6a4-454b-8923-e408bec9133f&idFuncionario=3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940"
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f"
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5"
+								},
+								{
+									"key": "pagina",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "08 - FRACASSO Listar Enderecos IDS CLIENTE E FORNECEDOR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idCliente=d0cf8548-a0f6-490a-ac6e-2a47b320e940&idFornecedor=749b40a5-c6a4-454b-8923-e408bec9133f",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940"
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f"
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "09 - FRACASSO Listar Enderecos IDS CLIENTE E FUNCIONARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idCliente=d0cf8548-a0f6-490a-ac6e-2a47b320e940&idFuncionario=3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940"
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5"
+								},
+								{
+									"key": "pagina",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10 - FRACASSO Listar Enderecos IDS FORNECEDOR E FUNCIONARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFornecedor=749b40a5-c6a4-454b-8923-e408bec9133f&idFuncionario=3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f"
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5"
+								},
+								{
+									"key": "pagina",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11 - FRACASSO Listar Enderecos ID CLIENTE E PAGINA INCORRETA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idCliente=d0cf8548-a0f6-490a-ac6e-2a47b320e940&pagina=-1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940"
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12 - FRACASSO Listar Enderecos ID FORNECEDOR E PAGINA INCORRETA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFornecedor=749b40a5-c6a4-454b-8923-e408bec9133f&pagina=-1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f"
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13 - FRACASSO Listar Enderecos ID FUNCIONARIO E PAGINA INCORRETA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFuncionario=3eb5d547-a954-42e0-860d-7f3edb4f5ff5&pagina=-1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-490a-ac6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8923-e408bec9133f",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d547-a954-42e0-860d-7f3edb4f5ff5"
+								},
+								{
+									"key": "pagina",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14 - FRACASSO Listar Enderecos ID CLIENTE FORA DO PADRÃO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idCliente=d0cf8548-a0f6-49c6e-2a47b320e940",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-49c6e-2a47b320e940"
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8bec9133f",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d4-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "-1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15 - FRACASSO Listar Enderecos ID FORNECEDOR FORA DO PADRÃO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFornecedor=749b40a5-c6a4-454b-8bec9133f",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-49c6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8bec9133f"
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d4-42e0-860d-7f3edb4f5ff5",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "-1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "16 - FRACASSO Listar Enderecos ID FUNCIONARIO FORA DO PADRÃO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/endereco?idFuncionario=3eb5d4-42e0-860d-7f3edb4f5ff5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "d0cf8548-a0f6-49c6e-2a47b320e940",
+									"disabled": true
+								},
+								{
+									"key": "idFornecedor",
+									"value": "749b40a5-c6a4-454b-8bec9133f",
+									"disabled": true
+								},
+								{
+									"key": "idFuncionario",
+									"value": "3eb5d4-42e0-860d-7f3edb4f5ff5"
+								},
+								{
+									"key": "pagina",
+									"value": "-1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Editar Parcialmente",
+			"item": [
+				{
+					"name": "01 - SUCESSO Atualização parcial TODOS OS CAMPOS",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"numero\": \"1\",\r\n    \"cep\": \"88960000\",\r\n    \"complemento\": \"Casa\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02 - SUCESSO Atualização parcial APENAS NUMERO E COMPLEMENTO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"numero\": \"99\",\r\n    \"complemento\": \"Casa 3\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03 - SUCESSO Atualização parcial APENAS CEP",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"cep\": \"95670138\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04 - FRACASSO Atualização parcial CAMPOS FORA DO PADRÃO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"a\",\r\n\t\"cep\": \"95670\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "05 - FRACASSO Atualização parcial ID INEXISTENTE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"1\",\r\n\t\"cep\": \"95670138\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/df740863-a7b6-4c7d-b67d-162e3e44a6e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"df740863-a7b6-4c7d-b67d-162e3e44a6e5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06 - FRACASSO Atualização parcial ID FORA DO PADRÃO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"1\",\r\n\t\"cep\": \"95670138\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/723beda0-354c-477e529b0d5b8e3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"723beda0-354c-477e529b0d5b8e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "07 - FRACASSO Atualização parcial TODOS OS CAMPOS VAZIOS OU NULOS",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cep\": \"\",\r\n    \"complemento\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
