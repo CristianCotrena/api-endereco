@@ -16,6 +16,15 @@ public class AtualizarParcialmenteEnderecoValidate {
 
         List<BaseErrorDto> erros = new ArrayList<>();
 
+        if (id == null || id.isEmpty()) {
+            erros.add(new BaseErrorDto("id", MensagensErros.CAMPO_OBRIGATORIO));
+        }
+        if ((atualizarParcialmenteEnderecoRequestDto.getNumero() == null || atualizarParcialmenteEnderecoRequestDto.getNumero().isEmpty())
+                && (atualizarParcialmenteEnderecoRequestDto.getCep() == null || atualizarParcialmenteEnderecoRequestDto.getCep().isEmpty())
+                && (atualizarParcialmenteEnderecoRequestDto.getComplemento() == null || atualizarParcialmenteEnderecoRequestDto.getComplemento().isEmpty())) {
+            erros.add(new BaseErrorDto("numero, cep, complemento", MensagensErros.AO_MENOS_UM_CAMPO));
+        }
+
         if (id != null && !id.isEmpty()) {
             if (!Pattern.compile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matcher(id).matches()) {
                 erros.add(new BaseErrorDto("id", MensagensErros.CAMPO_FORA_DO_PADRAO));
