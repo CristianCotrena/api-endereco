@@ -3,9 +3,11 @@ package com.api.endereco.controllers.v1;
 import com.api.endereco.base.dto.BaseDto;
 import com.api.endereco.entity.dtos.AtualizarParcialmenteEnderecoRequestDto;
 import com.api.endereco.entity.dtos.CadastrarEnderecoRequestDto;
+import com.api.endereco.entity.dtos.ListarEnderecosRequestDto;
 import com.api.endereco.entity.models.EnderecoModel;
 import com.api.endereco.services.v1.AtualizarParcialmenteEnderecoService;
 import com.api.endereco.services.v1.CadastrarEnderecoService;
+import com.api.endereco.services.v1.ListarEnderecosService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -23,13 +25,16 @@ public class EnderecoController {
 
     private final CadastrarEnderecoService cadastrarEnderecoService;
     private final AtualizarParcialmenteEnderecoService atualizarParcialmenteEnderecoService;
+    private final ListarEnderecosService listarEnderecosService;
 
     @Autowired
     public EnderecoController(
             CadastrarEnderecoService cadastrarEnderecoService,
-            AtualizarParcialmenteEnderecoService atualizarParcialmenteEnderecoService) {
+            AtualizarParcialmenteEnderecoService atualizarParcialmenteEnderecoService,
+            ListarEnderecosService listarEnderecosService) {
         this.cadastrarEnderecoService = cadastrarEnderecoService;
         this.atualizarParcialmenteEnderecoService = atualizarParcialmenteEnderecoService;
+        this.listarEnderecosService = listarEnderecosService;
     }
 
     @Operation(summary = "Cadastra um novo endereco.", method = "POST")
@@ -117,6 +122,54 @@ public class EnderecoController {
         ResponseEntity<BaseDto<EnderecoModel>> resultado = atualizarParcialmenteEnderecoService.atualizarParcialmente(
                 id,
                 atualizarParcialmenteEnderecoRequestDto);
+        return resultado;
+    }
+
+    @Operation(summary = "Listar enderecos de um id.", method = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "202", description = "Listado com sucesso.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Listado com sucesso.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Somente um id deve ser informado.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Somente um id deve ser informado.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Campo Id é obrigatório.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Campo Id é obrigatório.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Id fora do padrão UUID.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Id fora do padrão UUID.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Pagina incorreta.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Pagina incorreta.")
+                    )
+            }),
+            @ApiResponse(responseCode = "400", description = "Id não encontrado.", content = {
+                    @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(type = "string", example = "Id não encontrado.")
+                    )
+            }),
+    })
+    @GetMapping
+    public ResponseEntity<BaseDto<EnderecoModel>> listarEnderecos (
+            ListarEnderecosRequestDto listarEnderecosRequestDto,
+            @RequestParam(required = false) String pagina
+            ) {
+        ResponseEntity<BaseDto<EnderecoModel>> resultado = listarEnderecosService.listarEnderecos(listarEnderecosRequestDto, pagina);
         return resultado;
     }
 }
