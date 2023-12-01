@@ -1,5 +1,6 @@
 package com.api.endereco.transformer;
 
+import com.api.endereco.entity.dtos.AtualizarParcialmenteEnderecoRequestDto;
 import com.api.endereco.entity.dtos.CadastrarEnderecoRequestDto;
 import com.api.endereco.entity.models.EnderecoModel;
 
@@ -37,5 +38,35 @@ public class EnderecoModelTransform {
         } else {
             return true;
         }
+    }
+
+    public EnderecoModel transformarEnderecoParcialmente(
+            AtualizarParcialmenteEnderecoRequestDto dto,
+            EnderecoModel enderecoModel) {
+
+        if (dto.getCep() != null && !dto.getCep().isEmpty()) {
+            enderecoModel.setCep(dto.getCep());
+        } else {
+            dto.setCep(enderecoModel.getCep());
+        }
+
+        BuscarViaCep buscarViaCep = EnderecoBuscarCep.recebendoEndereco(dto.getCep());
+        enderecoModel.setRua(buscarViaCep.getLogradouro());
+        enderecoModel.setBairro(buscarViaCep.getBairro());
+        enderecoModel.setCidade(buscarViaCep.getLocalidade());
+        enderecoModel.setEstado(buscarViaCep.getUf());
+
+        if (dto.getNumero() != null && !dto.getNumero().isEmpty()) {
+            enderecoModel.setNumero(Integer.parseInt(dto.getNumero()));
+        } else {
+            dto.setNumero(enderecoModel.getNumero().toString());
+        }
+
+        if (dto.getComplemento() != null && !dto.getComplemento().isEmpty()) {
+            enderecoModel.setComplemento(dto.getComplemento());
+        } else {
+            dto.setComplemento(dto.getComplemento());
+        }
+        return enderecoModel;
     }
 }

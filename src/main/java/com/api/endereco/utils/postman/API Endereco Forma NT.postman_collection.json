@@ -980,6 +980,221 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Editar Parcialmente",
+			"item": [
+				{
+					"name": "01 - SUCESSO Atualização parcial TODOS OS CAMPOS",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"numero\": \"1\",\r\n    \"cep\": \"88960000\",\r\n    \"complemento\": \"Casa\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02 - SUCESSO Atualização parcial APENAS NUMERO E COMPLEMENTO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"numero\": \"99\",\r\n    \"complemento\": \"Casa 3\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03 - SUCESSO Atualização parcial APENAS CEP",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"cep\": \"95670138\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04 - FRACASSO Atualização parcial CAMPOS FORA DO PADRÃO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"a\",\r\n\t\"cep\": \"95670\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "05 - FRACASSO Atualização parcial ID INEXISTENTE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"1\",\r\n\t\"cep\": \"95670138\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/df740863-a7b6-4c7d-b67d-162e3e44a6e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"df740863-a7b6-4c7d-b67d-162e3e44a6e5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06 - FRACASSO Atualização parcial ID FORA DO PADRÃO",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"1\",\r\n\t\"cep\": \"95670138\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/723beda0-354c-477e529b0d5b8e3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"723beda0-354c-477e529b0d5b8e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "07 - FRACASSO Atualização parcial TODOS OS CAMPOS VAZIOS OU NULOS",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cep\": \"\",\r\n    \"complemento\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/endereco/32f13c44-db1f-4dfd-8df8-0de5e98be600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"endereco",
+								"32f13c44-db1f-4dfd-8df8-0de5e98be600"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
